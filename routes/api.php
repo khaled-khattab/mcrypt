@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::group(['middleware'=> 'decrypt'], function (){
+    Route::post('decrypt-encrypt', 'MCryptController@decrypt_encrypt');
+});
